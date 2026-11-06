@@ -1,37 +1,23 @@
-# Virtual environment
-.venv/
-venv/
-env/
+if (-not (Test-Path .gitignore)) {
+    New-Item -ItemType File .gitignore
+}
 
-# Python
+@'
+
+# Python environment and cache
+.venv/
 __pycache__/
 *.py[cod]
-*.pyo
 
-# Jupyter
-.ipynb_checkpoints/
-
-# Dataset
-data/raw/*
-data/processed/*
+# Downloaded and processed datasets
+data/raw/
+data/processed/
+data/samples/
 
 # Model checkpoints
-checkpoints/
-*.safetensors
-*.bin
-*.pt
-*.pth
+models/
 
-# Logs and outputs
-logs/*
-outputs/*
-
-# Environment variables
-.env
-
-# VS Code
-.vscode/
-
-# OS files
-.DS_Store
-Thumbs.db
+# Generated outputs
+results/
+logs/
+'@ | Add-Content .gitignore
