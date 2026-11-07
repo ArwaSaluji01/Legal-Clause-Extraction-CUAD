@@ -1,10 +1,4 @@
-if (-not (Test-Path .gitignore)) {
-    New-Item -ItemType File .gitignore
-}
-
-@'
-
-# Python environment and cache
+﻿# Python environment and cache
 .venv/
 __pycache__/
 *.py[cod]
@@ -14,10 +8,18 @@ data/raw/
 data/processed/
 data/samples/
 
-# Model checkpoints
+# Model checkpoints and generated artifacts
 models/
+checkpoints/
+*.safetensors
+*.bin
 
 # Generated outputs
 results/
 logs/
-'@ | Add-Content .gitignore
+
+# IDE and operating system
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
